@@ -65,10 +65,12 @@ router.post("/edit",authCheck, async (req,res)=>{
 
 //這一塊上社團發問再回來改
 // router.post("/delete",authCheck, async (req,res)=>{
-//     console.log(req.body.arrayIndex);
-//     orderdata = Order.find({user: req.user});
+//     //console.log(req.body.arrayIndex);
+//     orderdata = await Order.find({user: req.user});
 //     console.log(orderdata);
 //     console.log(typeof(orderdata));
+//     console.log(orderdata.constructor == Array)
+
     
 //     //console.log(orderdata[req.body.arrayIndex]);
 //     //console.log(ordedData[req.body.arrayIndex].userEmail);
