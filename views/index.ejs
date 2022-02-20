@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Home</title>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <main style="padding: 3rem">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">
+           Happy Shop
+        </h1>
+        <p class="col-md-8 fs-4">
+          你可以在這邊瀏覽商品，註冊帳號，登入查看並編輯自己的購物車，亦可使用google第三方登入，
+          選購完畢後亦可執行完成訂單動作，會自動扣除商品庫存。
+        </p>
+        <a class="btn btn-primary btn-lg" href="https://github.com/Jefflinxx/shopping_application/blob/main/models/order/update_model.js" target="_blank">
+          查看原始碼
+        </a>
+      </div>
+    </div>
+    <div>
+      <table align="center" valign="center">
+        <tr>
+          <th>商品名稱</th>
+          <th>商品價錢</th>
+          <th>商品數量</th>
+          <th>商品描述</th>
+        </tr>
+        <% for (var i = 0; i < product.length; i++) { %>
+        <tr>
+          <td><%= product[i].name %></td>
+          <td><%= product[i].price %></td>
+          <td><%= product[i].quantity %></td>
+          <td><%= product[i].remark %></td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+    <% if (user) { %>
+    <form  action="/order" method="POST">
+      <%- include ("partials/message")  %>
+    <div class="form-group">
+      <label for="exampleProductname">Productname</label>
+      <input
+        name="productname"
+        type="text"
+        class="form-control"
+        id="exampleProductname"
+        required
+      />
+      <small class="form-text text-muted">Enter correct productname here</small>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="exampleorderQuantity">Quantity</label>
+      <input
+        name="orderQuantity"
+        type="number"
+        class="form-control"
+        id="exampleorderQuantity"
+        required
+      />
+      <small class="form-text text-muted">Enter the quantity you want to order here</small>
+    </div>
+    <br />
+        <button class="btn btn-primary">Submit</button>
+  </form>
+  <% } %> 
+  </main>
+  </body>
+</html>

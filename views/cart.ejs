@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Cart</title>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <main style="padding: 3rem">
+    <div>
+        <table align="center" valign="center">
+          <tr>
+            <th>商品名稱</th>
+            <th>商品數量</th>
+            <th>商品總價</th>
+            <!-- <th></th> -->
+          </tr>
+          <% for (var i = 0; i < order.length; i++) { %>
+          <tr>
+            <td><%= order[i].productname %></td>
+            <td><%= order[i].orderQuantity %></td>
+            <td><%= order[i].orderPrice %></td>
+            <!-- <td>
+                <form method="POST" action="/order/delete">
+                    <input type="hidden" name="arrayIndex" value="  i  "/> 
+                    <button class="btn btn-primary">Delete</button>
+                  </form>
+            </td> -->
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <div align="center" valign="center">
+      <form method="POST" action="/order/delete">
+        <input type="hidden" name="name" value="value"/>
+        <button class="btn btn-primary">Delete</button>
+      </form>
+    </div>
+
+      <form  action="/order/edit" method="POST">
+        <%- include ("partials/message")  %>
+      <div class="form-group">
+        <label for="exampleProductname">Productname</label>
+        <input
+          name="productname"
+          type="text"
+          class="form-control"
+          id="exampleProductname"
+          required
+        />
+        <small class="form-text text-muted">Enter correct productname here</small>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="exampleorderQuantity">Quantity</label>
+        <input
+          name="orderQuantity"
+          type="number"
+          class="form-control"
+          id="exampleorderQuantity"
+          required
+        />
+        <small class="form-text text-muted">Enter the quantity you want to order here</small>
+      </div>
+      <br />
+          <button class="btn btn-primary">Submit</button>
+    </form>
+    </main>
+  </body>
