@@ -19,6 +19,11 @@
 - 客戶可建立自己的購物清單
 - 客戶可編輯、刪除購物清單
 
+## 開啟方式
+1. npm install
+2. .env檔額外附上
+3. node app.js
+
 ## 持續更新方向
 
 - 客戶可執行下訂動作完成訂單
@@ -33,6 +38,7 @@
 - Visual Studio Code
 - nodejs
 - express
+- Boostrap
 - ejs
 - MongoDB Atlas
 - Mongoose
